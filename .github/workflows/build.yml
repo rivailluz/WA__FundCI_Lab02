@@ -15,17 +15,17 @@ jobs:
       - name: Checkout Repositório
         uses: actions/checkout@v3
 
-      - name: Verificar Versão do Node.js
+      - name: Run node --version
         run: node --version
 
-      - name: Verificar Versão do NPM
+      - name: Run npm --version
         run: npm --version
 
-      - name: Instalar Dependências
+      - name: Run npm install
         run: npm install
 
-      - name: Instalar Moment.js
+      - name: Run npm install --save moment
         run: npm install --save moment
 
-      - name: Executar Aplicação
+      - name: Run node app.js
         run: node app.js
