@@ -1,8 +1,31 @@
 name: Simple Local
-on: push
+
+on:
+  push:
+
 jobs:
-  first-job:
+  build-node:
     runs-on: ubuntu-latest
+
+    container:
+      image: node:18
+      options: --user node
+
     steps:
-      - name: Diga oi
-        run: echo "Hello World!"
+      - name: Checkout Repositório
+        uses: actions/checkout@v3
+
+      - name: Verificar Versão do Node.js
+        run: node --version
+
+      - name: Verificar Versão do NPM
+        run: npm --version
+
+      - name: Instalar Dependências
+        run: npm install
+
+      - name: Instalar Moment.js
+        run: npm install --save moment
+
+      - name: Executar Aplicação
+        run: node app.js
